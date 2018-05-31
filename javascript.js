@@ -12,7 +12,14 @@ var config = {
 
   firebase.initializeApp(config);
 
-  var database = 
+  var database = firebase.database();
 
 
   database.ref().firebase
+
+
+
+  //grab the added information
+  databse.ref().on("child_added", function(snaphot){
+     var sv = sanpshot.val(); 
+  }))
