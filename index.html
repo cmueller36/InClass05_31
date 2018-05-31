@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
     crossorigin="anonymous">
 
+
   <title>Employee Directory</title>
 </head>
 
@@ -18,76 +19,78 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         <!--jumbotron for header-->
-        <div class="jumbotron">
-          <h1 class="display-4">Employee Data Management</h1>
-          <p class="lead">A Comprehensive Directory of Employee Billable Hours</p>
-        </div>
-
-        <div class="card" style="width: 100%;">
-          <div class="card-body">
-            <h2 class="card-title">Current Employees</h2>
-
-            <!--table for displaying employees-->
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Employee Name</th>
-                  <th scope="col">Role</th>
-                  <th scope="col">Start Date</th>
-                  <th scope="col">Months Worked</th>
-                  <th scope="col">Monthly Rate</th>
-                  <th scope="col">Months Worked</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- example of what a <tr> should look like -->
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Hobert Bush</td>
-                  <td>Manager / Dev</td>
-                  <td>03/11/2017</td>
-                  <td>14</td>
-                  <td>10000</td>
-                  <td>140000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="jumbotron" style="background: #000">
+          <h1 class="display-4" style="color: #fff">Employee Data Management</h1>
+          <p class="lead" style="color: #fff">A Comprehensive Directory of Employee Billable Hours</p>
         </div>
       </div>
     </div>
-  
-  <!--add new employee form-->
-  <div class="card" style="width: 100%;">
-    <div class="card-body">
-      <div class="form-group">
-        <h3 class="card-title">Add Employee</h3>
-        <label for="newEmployeeNAme">Employee Name</label>
-        <input type="text" class="form-control" id="newEmployeeID" placeholder="Enter Full Name">
-      </div>
 
-      <div class="form-group">
-        <label for="newEmployeeRole">Role</label>
-        <input type="text" class="form-control" id="newRoleID" placeholder="Employee Role">
-      </div>
+    <div class="row">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h2 class="card-title">Current Employees</h2>
 
-      <div class="form-group">
-        <label for="newStartDate">Start Date (DD/MM/YY) - ex: (01/01/89)</label>
-        <input type="date" class="form-control" id="newDateID" placeholder="Start Date">
+          <!--table for displaying employees-->
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Months Worked</th>
+                <th scope="col">Monthly Rate</th>
+                <th scope="col">Months Worked</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- example of what a <tr> should look like -->
+              <tr>
+                <th scope="row">1</th>
+                <td>Hobert Bush</td>
+                <td>Manager / Dev</td>
+                <td>03/11/2017</td>
+                <td>14</td>
+                <td>10000</td>
+                <td>140000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="newEmployeeRate">Monthly Rate</label>
-        <input type="text" class="form-control" id="newRateID" placeholder="Monthly Rate">
+    <!--add new employee form-->
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <div class="form-group">
+          <h3 class="card-title">Add Employee</h3>
+          <label for="newEmployeeNAme">Employee Name</label>
+          <input type="text" class="form-control" id="newEmployeeID" placeholder="Enter Full Name">
+        </div>
+
+        <div class="form-group">
+          <label for="newEmployeeRole">Role</label>
+          <input type="text" class="form-control" id="newRoleID" placeholder="Employee Role">
+        </div>
+
+        <div class="form-group">
+          <label for="newStartDate">Start Date (DD/MM/YY) - ex: (01/01/89)</label>
+          <input type="date" class="form-control" id="newDateID" placeholder="Start Date">
+        </div>
+
+        <div class="form-group">
+          <label for="newEmployeeRate">Monthly Rate</label>
+          <input type="text" class="form-control" id="newRateID" placeholder="Monthly Rate">
+        </div>
+
+        <button id="submitButton" type="button" class="btn btn-primary">Submit</button>
+        </form>
       </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
     </div>
   </div>
-  </div>
 
 
 
@@ -97,12 +100,16 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></div>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
+
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+  <script src="javascript.js"></script>
 </body>
 
 </html>
