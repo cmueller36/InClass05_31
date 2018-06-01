@@ -41,7 +41,7 @@ $("#submitButton").on("click", function (event) {
   userDate = $("#newDateID").val().trim();
   userRate = $("#newRateID").val().trim();
   currentDate = moment(firebase.database.ServerValue.TIMESTAMP).format("MM/DD/YYYY");
-  duration = moment(currentDate).diff(userDate,'months');
+  duration = parseFloat(moment(currentDate).diff(userDate,'months',true)).toFixed(2);
   userPay = userRate*duration;
 
   console.log(userName);
