@@ -21,6 +21,7 @@ var userRate = "";
 var currentDate = "";
 var userBilled = "";
 var duration = "";
+var userPay = "";
 
 
 // var currentDateFormat = "DD/MM/YY";
@@ -40,7 +41,8 @@ $("#submitButton").on("click", function (event) {
   userDate = $("#newDateID").val().trim();
   userRate = $("#newRateID").val().trim();
   currentDate = moment(firebase.database.ServerValue.TIMESTAMP).format("MM/DD/YYYY");
-  duration = moment(currentDate).diff(userDate,'months',true);
+  duration = moment(currentDate).diff(userDate,'months');
+  userPay = userRate*duration;
 
   console.log(userName);
   console.log(userRole);
@@ -54,8 +56,10 @@ $("#submitButton").on("click", function (event) {
     EmployeeName: userName,
     Role: userRole,
     StartDate: userDate,
+    MonthsWorked: duration,
     Rate: userRate,
-    SubmitDate: currentDate
+    SubmitDate: currentDate,
+    PayOut: userPay
   }
 
   database.ref().push(temp);
@@ -74,6 +78,7 @@ database.ref().on("child_added", function (childSnaphot) {
   console.log(childSnaphot.val().EmployeeName);
   console.log(childSnaphot.val().Role);
   console.log(childSnaphot.val().StartDate);
+  console.log(childSnaphot.val().MonthsWorked);
   console.log(childSnaphot.val().Rate);
   console.log(childSnaphot.val().SubmitDate);
 
@@ -82,8 +87,9 @@ database.ref().on("child_added", function (childSnaphot) {
   +childSnaphot.val().EmployeeName+"</td><td>"
   +childSnaphot.val().Role+"</td><td>"
   +childSnaphot.val().StartDate+"</td><td>"
+  +childSnaphot.val().MonthsWorked+"</td><td>"
   +childSnaphot.val().Rate+"</td><td>"
-  +childSnaphot.val().SubmitDate
+  +childSnaphot.val().PayOut
   +"</td></tr>"))
 
 });
