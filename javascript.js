@@ -38,6 +38,7 @@ $("#submitButton").on("click", function (event) {
   userRole = $("#newRoleID").val().trim();
   userDate = $("#newDateID").val().trim();
   userRate = $("#newRateID").val().trim();
+  currentDate = firebase.database.ServerValue.TIMESTAMP;
 
 var userDatePretty = moment.unix(userDate).format("MM/DD/YYYY");
 // var monthsWorked = moment().diff(moment(userDate, "X"), "months");
