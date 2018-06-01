@@ -20,7 +20,8 @@ var userDate = "";
 var userRate = "";
 var currentDate = "";
 var userBilled = "";
-var monthDiff = "";
+var duration = "";
+
 
 // var currentDateFormat = "DD/MM/YY";
 // var convertedDate = moment(a, currentDateFormat);
@@ -38,27 +39,26 @@ $("#submitButton").on("click", function (event) {
   userRole = $("#newRoleID").val().trim();
   userDate = $("#newDateID").val().trim();
   userRate = $("#newRateID").val().trim();
-  currentDate = firebase.database.ServerValue.TIMESTAMP;
-
-var userDatePretty = moment.unix(userDate).format("MM/DD/YYYY");
-// var monthsWorked = moment().diff(moment(userDate, "X"), "months");
-  monthDiff = moment(userDate).diff(moment(),"months");
+  currentDate = moment(firebase.database.ServerValue.TIMESTAMP).format("MM/DD/YYYY");
+  duration = moment(currentDate).diff(userDate,'months',true);
 
   console.log(userName);
   console.log(userRole);
   console.log(userDate);
   console.log(userRate);
   console.log(currentDate);
-  console.log(monthDiff);
+  console.log(duration);
 
-  database.ref().push({
+
+  var temp = {
     EmployeeName: userName,
     Role: userRole,
     StartDate: userDate,
     Rate: userRate,
     SubmitDate: currentDate
+  }
 
-  });
+  database.ref().push(temp);
 
   $("#newEmployeeID").val('');
   $("#newRoleID").val('');
@@ -78,5 +78,12 @@ database.ref().on("child_added", function (childSnaphot) {
   console.log(childSnaphot.val().SubmitDate);
 
   //add new rows to table
-  $()
+  $("#tablebody").append($("<tr><td>"
+  +childSnaphot.val().EmployeeName+"</td><td>"
+  +childSnaphot.val().Role+"</td><td>"
+  +childSnaphot.val().StartDate+"</td><td>"
+  +childSnaphot.val().Rate+"</td><td>"
+  +childSnaphot.val().SubmitDate
+  +"</td></tr>"))
+
 });
