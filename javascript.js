@@ -30,7 +30,7 @@ $("#submitButton").on("click", function (event) {
     userRole = $("#newRoleID").val().trim();
     userDate = $("#newDateID").val().trim();
     userRate = $("#newRateID").val().trim();
-    currentDate = new Date();
+    currentDate = new Date($.now());
 
     console.log(userName);
     console.log(userRole);
